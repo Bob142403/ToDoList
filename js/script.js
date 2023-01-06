@@ -9,6 +9,7 @@ function saveItem() {
   addbtn.innerHTML = "Add Item";
   addbtn.style.borderRadius = "0 5px 5px 0";
   cancel.style.display = "none";
+  section = 1;
 
   addbtn.removeEventListener("click", saveItem);
   addbtn.addEventListener("click", addItem);
@@ -33,17 +34,22 @@ function addItem() {
     clearblock.style.display = "";
 
     btndel.onclick = (event) => {
-      event.target.parentNode.remove();
+      sectiontime();
+
+      event.target.parentNode.parentNode.remove();
 
       checkList();
+      section = 1;
     };
     btnedit.onclick = (event) => {
+      section = 0;
       doid = event.target.parentNode.parentNode.id;
       inputtxt.value = text.innerHTML;
       prevtextvalue = inputtxt.value;
       addbtn.innerHTML = "Save Item";
       cancel.style.display = "";
       addbtn.style.borderRadius = "0";
+
       addbtn.removeEventListener("click", addItem);
       addbtn.addEventListener("click", saveItem);
     };
@@ -59,7 +65,10 @@ function checkList() {
 }
 
 function clearlist() {
+  clearblock.style.display = "none";
+  sectiontime();
   list.innerHTML = "";
+  section = 1;
   iditem = 0;
 }
 
@@ -67,9 +76,22 @@ function changevalue() {
   inputtxt.value = prevtextvalue;
 }
 
+function sectiontime() {
+  if (section == 0) {
+    inputtxt.value = "";
+    addbtn.innerHTML = "Add Item";
+    addbtn.style.borderRadius = "0 5px 5px 0";
+    cancel.style.display = "none";
+
+    addbtn.removeEventListener("click", saveItem);
+    addbtn.addEventListener("click", addItem);
+  }
+}
+
 let iditem = 0,
   doid = 0;
 let prevtextvalue = "";
+let section = 1;
 let mainlist = document.getElementById("mainList");
 let addbtn = document.getElementById("add");
 let inputtxt = document.getElementById("txt");
