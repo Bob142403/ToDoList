@@ -1,9 +1,9 @@
 #mainList {
-  width: 700px;
+  width: 800px;
   height: 900px;
 }
 #title {
-  width: 700px;
+  width: 800px;
   height: 50px;
   font-weight: 700;
   font-size: 23px;
@@ -13,7 +13,7 @@
   font-family: cursive;
 }
 #clearblock {
-  width: 700px;
+  width: 800px;
   height: 40px;
   align-items: center;
   display: flex;
@@ -59,16 +59,28 @@
   justify-content: center;
   border-radius: 0 5px 5px 0;
 }
+#cancel {
+  color: #001aff;
+  width: 60px;
+  border-style: solid;
+  border-color: #001aff;
+  border-width: 1.2px 1.2px 1.2px 0;
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  border-radius: 0 5px 5px 0;
+}
 input {
   border-radius: 5px 0 0 5px;
   border: 1.4px solid #001aff;
   height: 27px;
-  width: 590px;
+  width: 650px;
   padding-left: 8px;
   outline: none;
 }
 #List {
-  width: 700px;
+  width: 800px;
 }
 .hlp {
   width: 30px;
@@ -76,14 +88,14 @@ input {
   display: flex;
 }
 .item {
-  width: 700px;
+  width: 800px;
   height: 35px;
   padding: 10px 4px 4px 18px;
   display: flex;
   align-items: center;
 }
 .textitem {
-  width: 610px;
+  width: 690px;
   height: 35px;
   font-family: cursive;
   text-align: left;
