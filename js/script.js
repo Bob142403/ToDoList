@@ -4,6 +4,7 @@ function saveItem() {
 
   txt.innerHTML = inputtxt.value;
   if(!inputtxt.value) div.remove();
+  checkList();
   inputtxt.value = "";
   addbtn.innerHTML = "Add Item";
   addbtn.style.borderRadius = "0 5px 5px 0";
@@ -35,7 +36,7 @@ function addItem() {
     btndel.onclick = (event) => {
       event.target.parentNode.remove();
 
-      if (!list.innerHTML) clearblock.style.display = "none";
+      checkList();
     };
     btnedit.onclick = (event) => {
       doid = event.target.parentNode.parentNode.id;
@@ -52,6 +53,10 @@ function addItem() {
     inputtxt.value = "";
     list.append(div);
   }
+}
+
+function checkList() {
+  if (!list.innerHTML) clearblock.style.display = "none";
 }
 
 function clearlist() {
@@ -79,4 +84,4 @@ cancel.style.display = "none";
 
 addbtn.addEventListener("click", addItem);
 clearbtn.addEventListener("click", clearlist);
-cancel.addEventListener("click", changevalue)
+cancel.addEventListener("click", changevalue);

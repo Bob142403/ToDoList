@@ -75,7 +75,7 @@ input {
   border-radius: 5px 0 0 5px;
   border: 1.4px solid #001aff;
   height: 27px;
-  width: 650px;
+  width: 680px;
   padding-left: 8px;
   outline: none;
 }
@@ -95,7 +95,7 @@ input {
   align-items: center;
 }
 .textitem {
-  width: 690px;
+  width: 720px;
   height: 35px;
   font-family: cursive;
   text-align: left;
