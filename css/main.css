@@ -1,0 +1,90 @@
+#mainList {
+  width: 700px;
+  height: 900px;
+}
+#title {
+  width: 700px;
+  height: 50px;
+  font-weight: 700;
+  font-size: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: cursive;
+}
+#clearblock {
+  width: 700px;
+  height: 40px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+#clear {
+  color: #001aff;
+  width: 80px;
+  height: 31px;
+  border-style: solid;
+  border-color: #001aff;
+  border-width: 1.2px 1.2px 1.2px 1.2px;
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  border-radius: 5px;
+}
+#addAny {
+  padding: 10px;
+  display: flex;
+}
+.edit {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.dele {
+  width: 20px;
+  height: 20px;
+  padding-right: 4px;
+  cursor: pointer;
+}
+#add {
+  color: #001aff;
+  width: 80px;
+  border-style: solid;
+  border-color: #001aff;
+  border-width: 1.2px 1.2px 1.2px 0;
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  border-radius: 0 5px 5px 0;
+}
+input {
+  border-radius: 5px 0 0 5px;
+  border: 1.4px solid #001aff;
+  height: 27px;
+  width: 590px;
+  padding-left: 8px;
+  outline: none;
+}
+#List {
+  width: 700px;
+}
+.hlp {
+  width: 30px;
+  height: 20px;
+  display: flex;
+}
+.item {
+  width: 700px;
+  height: 35px;
+  padding: 10px 4px 4px 18px;
+  display: flex;
+  align-items: center;
+}
+.textitem {
+  width: 610px;
+  height: 35px;
+  font-family: cursive;
+  text-align: left;
+}
