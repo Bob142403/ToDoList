@@ -3,13 +3,12 @@ function saveItem() {
   let txt = div.querySelector(".textitem");
 
   txt.innerHTML = inputtxt.value;
-  if(!inputtxt.value) div.remove();
+  if (!inputtxt.value) div.remove();
   checkList();
   inputtxt.value = "";
   addbtn.innerHTML = "Add Item";
   addbtn.style.borderRadius = "0 5px 5px 0";
   cancel.style.display = "none";
-
 
   addbtn.removeEventListener("click", saveItem);
   addbtn.addEventListener("click", addItem);
@@ -19,8 +18,8 @@ function addItem() {
   if (inputtxt.value) {
     let div = document.createElement("div");
     let childdiv = `<div class="textitem"></div>
-    <div class="hlp"><img class="edit" src="./images/edit.png" /></div>
-    <img class="dele" src="./images/aaaaaaa.png" />`;
+    <div class="hlp"><img class="edit" src="./images/edit.png" />
+    <img class="dele" src="./images/aaaaaaa.png" /></div>`;
 
     div.classList.add("item");
     div.id = iditem;
