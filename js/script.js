@@ -1,3 +1,20 @@
+function canceloff() {
+  cancel.classList.remove("clear");
+  cancel.classList.add("displayoffclr");
+}
+function cancelon() {
+  cancel.classList.add("clear");
+  cancel.classList.remove("displayoffclr");
+}
+function clearoff() {
+  clearblock.classList.remove("clear");
+  clearblock.classList.add("displayoffclr");
+}
+function clearon() {
+  clearblock.classList.add("clear");
+  clearblock.classList.remove("displayoffclr");
+}
+
 function saveItem() {
   let div = document.getElementById(doid);
   let txt = div.querySelector(".textitem");
@@ -7,8 +24,9 @@ function saveItem() {
   checkList();
   inputtxt.value = "";
   addbtn.innerHTML = "Add Item";
-  addbtn.style.borderRadius = "0 5px 5px 0";
-  cancel.style.display = "none";
+  addbtn.classList.add("addborder");
+  addbtn.classList.remove("delborder");
+  canceloff();
   section = 1;
 
   addbtn.removeEventListener("click", saveItem);
@@ -22,35 +40,42 @@ function addItem() {
   if (inputtxt.value) {
     checkCountList();
     let div = document.createElement("div");
-    let childdiv = `<div class="textitem"></div>
-    <div class="hlp"><img class="edit" src="./images/edit.png" />
-    <img class="dele" src="./images/aaaaaaa.png" /></div>`;
-
+    let txtitem = document.createElement("div");
+    txtitem.classList.add("textitem");
+    let hlpdiv = document.createElement("div");
+    hlpdiv.classList.add("hlp");
+    let imgedit = document.createElement("img");
+    imgedit.classList.add("edit");
+    imgedit.src = "./images/edit.png";
+    let imgdele = document.createElement("img");
+    imgdele.classList.add("dele");
+    imgdele.src = "./images/aaaaaaa.png";
+    hlpdiv.append(imgedit);
+    hlpdiv.append(imgdele);
     div.classList.add("item");
     div.id = iditem;
-    div.innerHTML = childdiv;
+    div.append(txtitem);
+    div.append(hlpdiv);
 
-    let text = div.querySelector("div");
-    let btndel = div.querySelector(".dele");
-    let btnedit = div.querySelector(".edit");
+    txtitem.textContent = inputtxt.value;
 
-    text.textContent = inputtxt.value;
-    clearblock.style.display = "";
+    clearon();
 
-    btndel.onclick = (event) => {
+    imgdele.onclick = () => {
       if (doid == div.id) sectiontime();
       doid = -1;
-      event.target.parentNode.parentNode.remove();
+      div.remove();
       checkList();
       checkCountList();
     };
-    btnedit.onclick = (event) => {
-      doid = event.target.parentNode.parentNode.id;
-      inputtxt.value = text.textContent;
+    imgedit.onclick = () => {
+      doid = div.id;
+      inputtxt.value = txtitem.textContent;
       prevtextvalue = inputtxt.value;
+      cancelon();
       addbtn.innerHTML = "Save Item";
-      cancel.style.display = "";
-      addbtn.style.borderRadius = "0";
+      addbtn.classList.remove("addborder");
+      addbtn.classList.add("delborder");
       inputtxt.focus();
 
       addbtn.removeEventListener("click", addItem);
@@ -65,11 +90,13 @@ function addItem() {
 }
 
 function checkList() {
-  if (!list.innerHTML) clearblock.style.display = "none";
+  if (!list.innerHTML) {
+    clearoff();
+  }
 }
 
 function clearlist() {
-  clearblock.style.display = "none";
+  clearoff();
   sectiontime();
   list.innerHTML = "";
   iditem = 0;
@@ -85,8 +112,10 @@ function changevalue() {
 function sectiontime() {
   inputtxt.value = "";
   addbtn.innerHTML = "Add Item";
-  addbtn.style.borderRadius = "0 5px 5px 0";
-  cancel.style.display = "none";
+  addbtn.classList.add("addborder");
+  addbtn.classList.remove("delborder");
+
+  canceloff();
 
   addbtn.removeEventListener("click", saveItem);
   addbtn.addEventListener("click", addItem);
@@ -95,11 +124,9 @@ function sectiontime() {
 function checkCountList() {
   let allList = list.querySelectorAll("div");
   if (allList.length / 3 > 15) {
-    list.style.overflowY = "scroll";
-    list.style.height = "735px";
+    list.classList.add("listonscroll");
   } else {
-    list.style.height = "";
-    list.style.overflowY = "hidden";
+    list.classList.remove("listonscroll");
   }
 }
 
@@ -114,8 +141,8 @@ let clearbtn = document.getElementById("clear");
 let clearblock = document.getElementById("clearblock");
 let cancel = document.getElementById("cancel");
 
-clearblock.style.display = "none";
-cancel.style.display = "none";
+clearoff();
+canceloff();
 
 addbtn.addEventListener("click", addItem);
 clearbtn.addEventListener("click", clearlist);
