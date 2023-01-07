@@ -1,4 +1,4 @@
-import {clearoff, clearon, canceloff, cancelon} from "./Onoffelement";
+import {clearoff, clearon, canceloff, cancelon} from "./Onoffelement.js";
 
 function saveItem() {
   let div = document.getElementById(doid);
@@ -129,9 +129,6 @@ let cancel = document.getElementById("cancel");
 
 clearoff();
 canceloff();
-
-OnOff.canceloff();
-OnOff.clearoff();
 
 addbtn.addEventListener("click", addItem);
 clearbtn.addEventListener("click", clearlist);
