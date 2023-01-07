@@ -71,6 +71,7 @@ textarea {
   border-width: 1.2px 1.2px 1.2px 0;
   align-items: center;
   display: flex;
+  user-select: none;
   cursor: pointer;
   justify-content: center;
 }
@@ -154,5 +155,5 @@ input {
 .listonscroll {
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 735px;
+  height: 600px;
 }

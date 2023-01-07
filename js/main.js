@@ -26,8 +26,7 @@ function changevalue() {
 }
 
 function checkCountList() {
-  let allList = list.querySelectorAll("div");
-  if (allList.length / 3 > 15) {
+  if (parseInt(list.scrollHeight) > 600) {
     list.classList.add("listonscroll");
   } else {
     list.classList.remove("listonscroll");
@@ -59,7 +58,6 @@ function saveItem() {
 function addItem() {
   inputtxt.focus();
   if (inputtxt.value) {
-    checkCountList();
 
     let div = createEl("div", "item");
     let elem = createEl("div");
@@ -82,7 +80,6 @@ function addItem() {
     clearon();
 
     imgdele.onclick = () => {
-      console.log(doid);
       if (doid == div.id) sectiontime();
       div.remove();
       checkList();
