@@ -14,6 +14,7 @@ function saveItem() {
   addbtn.removeEventListener("click", saveItem);
   addbtn.addEventListener("click", addItem);
   inputtxt.focus();
+  doid = -1;
 }
 
 function addItem() {
@@ -33,19 +34,17 @@ function addItem() {
     let btndel = div.querySelector(".dele");
     let btnedit = div.querySelector(".edit");
 
-    console.log(text.textContent);
     text.textContent = inputtxt.value;
     clearblock.style.display = "";
 
     btndel.onclick = (event) => {
-      sectiontime();
+      if (doid == div.id) sectiontime();
+      doid = -1;
       event.target.parentNode.parentNode.remove();
       checkList();
       checkCountList();
-      section = 1;
     };
     btnedit.onclick = (event) => {
-      section = 0;
       doid = event.target.parentNode.parentNode.id;
       inputtxt.value = text.textContent;
       prevtextvalue = inputtxt.value;
@@ -73,8 +72,8 @@ function clearlist() {
   clearblock.style.display = "none";
   sectiontime();
   list.innerHTML = "";
-  section = 1;
   iditem = 0;
+  doid = -1;
   checkCountList();
 }
 
@@ -84,15 +83,13 @@ function changevalue() {
 }
 
 function sectiontime() {
-  if (section == 0) {
-    inputtxt.value = "";
-    addbtn.innerHTML = "Add Item";
-    addbtn.style.borderRadius = "0 5px 5px 0";
-    cancel.style.display = "none";
+  inputtxt.value = "";
+  addbtn.innerHTML = "Add Item";
+  addbtn.style.borderRadius = "0 5px 5px 0";
+  cancel.style.display = "none";
 
-    addbtn.removeEventListener("click", saveItem);
-    addbtn.addEventListener("click", addItem);
-  }
+  addbtn.removeEventListener("click", saveItem);
+  addbtn.addEventListener("click", addItem);
 }
 
 function checkCountList() {
@@ -107,9 +104,8 @@ function checkCountList() {
 }
 
 let iditem = 0,
-  doid = 0;
+  doid = -1;
 let prevtextvalue = "";
-let section = 1;
 let mainlist = document.getElementById("mainList");
 let addbtn = document.getElementById("add");
 let inputtxt = document.getElementById("txt");
