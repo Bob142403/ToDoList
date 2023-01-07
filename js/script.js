@@ -13,10 +13,12 @@ function saveItem() {
 
   addbtn.removeEventListener("click", saveItem);
   addbtn.addEventListener("click", addItem);
+  inputtxt.focus();
 }
 
 function addItem() {
   if (inputtxt.value) {
+    checkCountList();
     let div = document.createElement("div");
     let childdiv = `<div class="textitem"></div>
     <div class="hlp"><img class="edit" src="./images/edit.png" />
@@ -39,6 +41,7 @@ function addItem() {
       sectiontime();
       event.target.parentNode.parentNode.remove();
       checkList();
+      checkCountList();
       section = 1;
     };
     btnedit.onclick = (event) => {
@@ -49,6 +52,7 @@ function addItem() {
       addbtn.innerHTML = "Save Item";
       cancel.style.display = "";
       addbtn.style.borderRadius = "0";
+      inputtxt.focus();
 
       addbtn.removeEventListener("click", addItem);
       addbtn.addEventListener("click", saveItem);
@@ -57,6 +61,8 @@ function addItem() {
     iditem++;
     inputtxt.value = "";
     list.append(div);
+    inputtxt.focus();
+    checkCountList();
   }
 }
 
@@ -70,10 +76,12 @@ function clearlist() {
   list.innerHTML = "";
   section = 1;
   iditem = 0;
+  checkCountList();
 }
 
 function changevalue() {
   inputtxt.value = prevtextvalue;
+  inputtxt.focus();
 }
 
 function sectiontime() {
@@ -85,6 +93,18 @@ function sectiontime() {
 
     addbtn.removeEventListener("click", saveItem);
     addbtn.addEventListener("click", addItem);
+  }
+}
+
+function checkCountList() {
+  let allList = list.querySelectorAll('div');
+  if(allList.length / 3 > 15) {
+    list.style.overflowY = "scroll";
+    list.style.height = "735px";
+  }
+  else {
+    list.style.height = "";
+    list.style.overflowY = "hidden";
   }
 }
 

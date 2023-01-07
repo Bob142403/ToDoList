@@ -1,8 +1,9 @@
 #mainList {
-  width: 800px;
+  width: 850px;
   height: 900px;
 }
 #title {
+  user-select: none;
   width: 800px;
   height: 50px;
   font-weight: 700;
@@ -15,6 +16,7 @@
 #clearblock {
   width: 800px;
   height: 40px;
+  user-select: none;
   align-items: center;
   display: flex;
   justify-content: center;
@@ -24,6 +26,7 @@
   width: 80px;
   height: 31px;
   border-style: solid;
+  user-select: none;
   border-color: #001aff;
   border-width: 1.2px 1.2px 1.2px 1.2px;
   align-items: center;
@@ -35,6 +38,7 @@
 #addAny {
   padding: 10px;
   display: flex;
+  user-select: none;
 }
 .edit {
   width: 20px;
@@ -81,6 +85,8 @@ input {
 }
 #List {
   width: 800px;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 .hlp {
   width: 50px;
@@ -88,6 +94,7 @@ input {
   display: flex;
   justify-content: center;
   padding-top: 10px;
+  user-select: none;
 }
 .item {
   width: 800px;
@@ -101,4 +108,20 @@ input {
   height: 35px;
   font-family: cursive;
   text-align: left;
+  user-select: none;
+}
+#List::-webkit-scrollbar {
+  width: 12px;
+}
+#List::-webkit-scrollbar-track {
+  border-radius: 8px;
+  background: rgb(209, 209, 209);
+}
+#List::-webkit-scrollbar-thumb {
+  background: rgb(163, 163, 163);
+  border-radius: 8px;
+  border: 2.7px solid rgb(209, 209, 209);
+}
+#List::-webkit-scrollbar-thumb:hover {
+  background: rgb(24, 52, 206);
 }
