@@ -35,28 +35,25 @@ function saveItem() {
   doid = -1;
 }
 
-function createEl(tag) {
-  return document.createElement(tag);
+function createEl(tag, clas) {
+  let tg = document.createElement(tag);
+  if(clas) tg.classList.add(clas);
+  return tg;
 }
 
 function addItem() {
   inputtxt.focus();
   if (inputtxt.value) {
     checkCountList();
-    let div = createEl("div");
-    let txtitem = createEl("div");
-    txtitem.classList.add("textitem");
-    let hlpdiv = createEl("div");
-    hlpdiv.classList.add("hlp");
-    let imgedit = createEl("img");
-    imgedit.classList.add("edit");
+    let div = createEl("div", "item");
+    let txtitem = createEl("div", "textitem");
+    let hlpdiv = createEl("div", "hlp");
+    let imgedit = createEl("img", "edit");
     imgedit.src = "./images/edit.svg";
-    let imgdele = createEl("img");
-    imgdele.classList.add("dele");
+    let imgdele = createEl("img", "dele");
     imgdele.src = "./images/del.svg";
     hlpdiv.append(imgedit);
     hlpdiv.append(imgdele);
-    div.classList.add("item");
     div.id = iditem;
     div.append(txtitem);
     div.append(hlpdiv);
