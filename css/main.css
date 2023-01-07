@@ -35,10 +35,22 @@
   justify-content: center;
   border-radius: 5px;
 }
+#txtarea {
+  padding-left: 10px;
+}
+textarea {
+  width: 731px;
+  height: 100px;
+  padding: 6px;
+  outline: none;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #001aff;
+  border-width: 1.2px 1.2px 1.2px 1.2px;
+}
 #addAny {
   padding: 10px;
   display: flex;
-  user-select: none;
 }
 .edit {
   width: 20px;
@@ -81,13 +93,21 @@
   border-radius: 0 5px 5px 0;
 }
 input {
-  border-radius: 5px 0 0 5px;
+  border-radius: 5px 0 0 0;
   border: 1.4px solid #001aff;
   height: 27px;
   width: 730px;
   padding-left: 8px;
   font-size: 15px;
   outline: none;
+}
+.tasktxt {
+  word-wrap: break-word;
+  padding-left: 10px;
+  font-family: cursive;
+  font-size: 15px;
+  width: 700px;
+
 }
 #List {
   width: 850px;
@@ -102,7 +122,6 @@ input {
 }
 .item {
   width: 800px;
-  height: 35px;
   padding: 10px 4px 4px 18px;
   display: flex;
   align-items: center;

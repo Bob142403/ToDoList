@@ -14,28 +14,7 @@ export function clearon() {
   clearblock.classList.add("clear");
   clearblock.classList.remove("displayoffclr");
 }
-export function changevalue() {
-  inputtxt.value = prevtextvalue;
-  inputtxt.focus();
-}
 
-export function sectiontime() {
-  inputtxt.value = "";
-  addbtn.innerHTML = "Add Item";
-  addbtn.classList.add("addborder");
-  addbtn.classList.remove("delborder");
-
-  canceloff();
-
-  addbtn.removeEventListener("click", saveItem);
-  addbtn.addEventListener("click", addItem);
-}
-
-export function checkList() {
-  if (!list.innerHTML) {
-    clearoff();
-  }
-}
 export function createEl(tag, clas) {
   let tg = document.createElement(tag);
   if (clas) tg.classList.add(clas);
