@@ -2,7 +2,7 @@ function saveItem() {
   let div = document.getElementById(doid);
   let txt = div.querySelector(".textitem");
 
-  txt.innerHTML = inputtxt.value;
+  txt.textContent = inputtxt.value;
   if (!inputtxt.value) div.remove();
   checkList();
   inputtxt.value = "";
@@ -21,30 +21,30 @@ function addItem() {
     let childdiv = `<div class="textitem"></div>
     <div class="hlp"><img class="edit" src="./images/edit.png" />
     <img class="dele" src="./images/aaaaaaa.png" /></div>`;
-
+    
+    
     div.classList.add("item");
     div.id = iditem;
     div.innerHTML = childdiv;
-
+    
     let text = div.querySelector("div");
     let btndel = div.querySelector(".dele");
     let btnedit = div.querySelector(".edit");
-
-    text.innerHTML = inputtxt.value;
+    
+    console.log(text.textContent);
+    text.textContent = inputtxt.value;
     clearblock.style.display = "";
 
     btndel.onclick = (event) => {
       sectiontime();
-
       event.target.parentNode.parentNode.remove();
-
       checkList();
       section = 1;
     };
     btnedit.onclick = (event) => {
       section = 0;
       doid = event.target.parentNode.parentNode.id;
-      inputtxt.value = text.innerHTML;
+      inputtxt.value = text.textContent;
       prevtextvalue = inputtxt.value;
       addbtn.innerHTML = "Save Item";
       cancel.style.display = "";
