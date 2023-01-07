@@ -1,4 +1,13 @@
-import {clearoff, clearon, canceloff, cancelon} from "./Onoffelement.js";
+import {
+  clearoff,
+  clearon,
+  canceloff,
+  cancelon,
+  changevalue,
+  checkCountList,
+  checkList,
+  createEl,
+} from "./utils.js";
 
 function saveItem() {
   let div = document.getElementById(doid);
@@ -18,12 +27,6 @@ function saveItem() {
   addbtn.addEventListener("click", addItem);
   inputtxt.focus();
   doid = -1;
-}
-
-function createEl(tag, clas) {
-  let tg = document.createElement(tag);
-  if(clas) tg.classList.add(clas);
-  return tg;
 }
 
 function addItem() {
@@ -75,12 +78,6 @@ function addItem() {
   }
 }
 
-function checkList() {
-  if (!list.innerHTML) {
-    clearoff();
-  }
-}
-
 function clearlist() {
   clearoff();
   sectiontime();
@@ -88,32 +85,6 @@ function clearlist() {
   iditem = 0;
   doid = -1;
   checkCountList();
-}
-
-function changevalue() {
-  inputtxt.value = prevtextvalue;
-  inputtxt.focus();
-}
-
-function sectiontime() {
-  inputtxt.value = "";
-  addbtn.innerHTML = "Add Item";
-  addbtn.classList.add("addborder");
-  addbtn.classList.remove("delborder");
-
-  canceloff();
-
-  addbtn.removeEventListener("click", saveItem);
-  addbtn.addEventListener("click", addItem);
-}
-
-function checkCountList() {
-  let allList = list.querySelectorAll("div");
-  if (allList.length / 3 > 15) {
-    list.classList.add("listonscroll");
-  } else {
-    list.classList.remove("listonscroll");
-  }
 }
 
 let iditem = 0,
