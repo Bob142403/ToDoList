@@ -79,12 +79,12 @@ input {
   border-radius: 5px 0 0 5px;
   border: 1.4px solid #001aff;
   height: 27px;
-  width: 680px;
+  width: 730px;
   padding-left: 8px;
   outline: none;
 }
 #List {
-  width: 800px;
+  width: 850px;
   overflow-y: hidden;
   overflow-x: hidden;
 }
@@ -104,14 +104,14 @@ input {
   align-items: center;
 }
 .textitem {
-  width: 720px;
+  width: 760px;
   height: 35px;
   font-family: cursive;
   text-align: left;
   user-select: none;
 }
 #List::-webkit-scrollbar {
-  width: 12px;
+  width: 13px;
 }
 #List::-webkit-scrollbar-track {
   border-radius: 8px;
@@ -123,5 +123,5 @@ input {
   border: 2.7px solid rgb(209, 209, 209);
 }
 #List::-webkit-scrollbar-thumb:hover {
-  background: rgb(24, 52, 206);
+  background: #001aff;
 }

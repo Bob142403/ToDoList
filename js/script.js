@@ -17,22 +17,22 @@ function saveItem() {
 }
 
 function addItem() {
+  inputtxt.focus();
   if (inputtxt.value) {
     checkCountList();
     let div = document.createElement("div");
     let childdiv = `<div class="textitem"></div>
     <div class="hlp"><img class="edit" src="./images/edit.png" />
     <img class="dele" src="./images/aaaaaaa.png" /></div>`;
-    
-    
+
     div.classList.add("item");
     div.id = iditem;
     div.innerHTML = childdiv;
-    
+
     let text = div.querySelector("div");
     let btndel = div.querySelector(".dele");
     let btnedit = div.querySelector(".edit");
-    
+
     console.log(text.textContent);
     text.textContent = inputtxt.value;
     clearblock.style.display = "";
@@ -61,7 +61,6 @@ function addItem() {
     iditem++;
     inputtxt.value = "";
     list.append(div);
-    inputtxt.focus();
     checkCountList();
   }
 }
@@ -97,12 +96,11 @@ function sectiontime() {
 }
 
 function checkCountList() {
-  let allList = list.querySelectorAll('div');
-  if(allList.length / 3 > 15) {
+  let allList = list.querySelectorAll("div");
+  if (allList.length / 3 > 15) {
     list.style.overflowY = "scroll";
     list.style.height = "735px";
-  }
-  else {
+  } else {
     list.style.height = "";
     list.style.overflowY = "hidden";
   }
