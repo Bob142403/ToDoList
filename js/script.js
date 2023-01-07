@@ -1,19 +1,4 @@
-function canceloff() {
-  cancel.classList.remove("clear");
-  cancel.classList.add("displayoffclr");
-}
-function cancelon() {
-  cancel.classList.add("clear");
-  cancel.classList.remove("displayoffclr");
-}
-function clearoff() {
-  clearblock.classList.remove("clear");
-  clearblock.classList.add("displayoffclr");
-}
-function clearon() {
-  clearblock.classList.add("clear");
-  clearblock.classList.remove("displayoffclr");
-}
+import {clearoff, clearon, canceloff, cancelon} from "./Onoffelement";
 
 function saveItem() {
   let div = document.getElementById(doid);
@@ -45,6 +30,7 @@ function addItem() {
   inputtxt.focus();
   if (inputtxt.value) {
     checkCountList();
+
     let div = createEl("div", "item");
     let txtitem = createEl("div", "textitem");
     let hlpdiv = createEl("div", "hlp");
@@ -52,11 +38,10 @@ function addItem() {
     imgedit.src = "./images/edit.svg";
     let imgdele = createEl("img", "dele");
     imgdele.src = "./images/del.svg";
-    hlpdiv.append(imgedit);
-    hlpdiv.append(imgdele);
+
+    hlpdiv.append(imgedit, imgdele);
+    div.append(txtitem, hlpdiv);
     div.id = iditem;
-    div.append(txtitem);
-    div.append(hlpdiv);
 
     txtitem.textContent = inputtxt.value;
 
@@ -144,6 +129,9 @@ let cancel = document.getElementById("cancel");
 
 clearoff();
 canceloff();
+
+OnOff.canceloff();
+OnOff.clearoff();
 
 addbtn.addEventListener("click", addItem);
 clearbtn.addEventListener("click", clearlist);
