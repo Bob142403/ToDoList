@@ -31,14 +31,6 @@ export function sectiontime() {
   addbtn.addEventListener("click", addItem);
 }
 
-export function checkCountList() {
-  let allList = list.querySelectorAll("div");
-  if (allList.length / 3 > 15) {
-    list.classList.add("listonscroll");
-  } else {
-    list.classList.remove("listonscroll");
-  }
-}
 export function checkList() {
   if (!list.innerHTML) {
     clearoff();

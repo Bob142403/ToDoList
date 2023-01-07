@@ -4,10 +4,18 @@ import {
   canceloff,
   cancelon,
   changevalue,
-  checkCountList,
   checkList,
   createEl,
 } from "./utils.js";
+
+function checkCountList() {
+  let allList = list.querySelectorAll("div");
+  if (allList.length / 3 > 15) {
+    list.classList.add("listonscroll");
+  } else {
+    list.classList.remove("listonscroll");
+  }
+}
 
 function saveItem() {
   let div = document.getElementById(doid);
