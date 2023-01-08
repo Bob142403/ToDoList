@@ -122,6 +122,9 @@ function addItem() {
     checkLocal();
     checkCountList();
   }
+  else {
+    alert("Empty Title......");
+  }
 }
 
 function checkLocal() {
