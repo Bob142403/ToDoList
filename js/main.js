@@ -6,6 +6,16 @@ function checkList() {
   }
 }
 
+function clearlist() {
+  clearoff();
+  sectiontime();
+  list.innerHTML = "";
+  iditem = 0;
+  doid = -1;
+  localStorage.clear();
+  checkCountList();
+}
+
 function sectiontime() {
   inputtxt.value = "";
   txtarea.value = "";
@@ -49,16 +59,17 @@ function saveItem() {
   addbtn.classList.remove("delborder");
   canceloff();
 
+  localStorage.setItem(doid, txt.textContent);
   addbtn.removeEventListener("click", saveItem);
   addbtn.addEventListener("click", addItem);
   inputtxt.focus();
+  checkLocal();
   doid = -1;
 }
 
 function addItem() {
   inputtxt.focus();
   if (inputtxt.value) {
-
     let div = createEl("div", "item");
     let elem = createEl("div");
     let txtitem = createEl("div", "textitem");
@@ -81,9 +92,11 @@ function addItem() {
 
     imgdele.onclick = () => {
       if (doid == div.id) sectiontime();
+      localStorage.removeItem(div.id);
       div.remove();
       checkList();
       checkCountList();
+      checkLocal();
     };
     imgedit.onclick = () => {
       doid = div.id;
@@ -101,21 +114,32 @@ function addItem() {
       addbtn.addEventListener("click", saveItem);
     };
 
+    localStorage.setItem(iditem, txtitem.textContent);
     iditem++;
     inputtxt.value = "";
     txtarea.value = "";
     list.append(div);
+    checkLocal();
     checkCountList();
   }
 }
 
-function clearlist() {
-  clearoff();
-  sectiontime();
-  list.innerHTML = "";
-  iditem = 0;
-  doid = -1;
-  checkCountList();
+function checkLocal() {
+  for (let i = 0; i < localStorage.length; i++) {
+    let key = localStorage.key(i);
+    let div = document.getElementById(key);
+    div.classList.add("item");
+    div.classList.remove("displayoffclr");
+  }
+  for (let i = 0; i < localStorage.length; i++) {
+    let key = localStorage.key(i);
+    let str = localStorage.getItem(key);
+    if (!str.includes(find.value.trim())) {
+      let qwert = document.getElementById(key);
+      qwert.classList.remove("item");
+      qwert.classList.add("displayoffclr");
+    }
+  }
 }
 
 let iditem = 0,
@@ -130,10 +154,14 @@ let list = document.getElementById("List");
 let clearbtn = document.getElementById("clear");
 let clearblock = document.getElementById("clearblock");
 let cancel = document.getElementById("cancel");
+let find = document.getElementById("find");
 
 clearoff();
 canceloff();
 
+find.oninput = () => {
+  checkLocal();
+};
 addbtn.addEventListener("click", addItem);
 clearbtn.addEventListener("click", clearlist);
 cancel.addEventListener("click", changevalue);
